@@ -19,9 +19,12 @@
     </form>
 
     <ul>
-        <li>Ham Sandwich</li>
-        <li>Turkey Sandwich</li>
-        <li>Sunbutter and Jelly Sandwich</li>
+        <li th:each="sandwich : ${sandwiches}" >
+            <span th:text="${sandwich.name}">Ham Sandwich</span>
+            <span>[<a href="sandwiches.html" th:href="${'/delete?id=' + sandwich.id}">X</a>]</span>
+        </li>
+        <li th:remove="all">Turkey Sandwich [<a href="sandwiches.html">X</a>]</li>
+        <li th:remove="all">Sunbutter and Jelly Sandwich [<a href="sandwiches.html">X</a>]</li>
     </ul>
 </body>
 </html>
